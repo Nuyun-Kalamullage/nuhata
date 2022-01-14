@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="../src/style.css"> 
+
+	<meta name="description" content="">
+
+	<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+	<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+	<!-- Theme included stylesheets -->
+	<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<script src="https://kit.fontawesome.com/25a5513389.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+
+    <header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <div class="container-fluid justify-content-center justify-content-md-between">
+          <div class="d-flex my-2 my-sm-0">
+            <a class="navbar-brand me-2 mb-1 d-flex justify-content-center" href="#">
+              <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="20" alt=""
+                loading="lazy" />
+            </a>
+
+            <!-- Avatar -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+                role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
+                  alt="" loading="lazy" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">My profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+     </header>
+
+
+
+
+
+    <div class="notes" id="app">
+        <div class="notes__sidebar">
+            <button class="notes__add" type="button">Add Note</button>
+            <div class="notes__list">
+                <div class="notes__list-item notes__list-item--selected">
+                    <div class="notes__small-title">Lecture Notes 01</div>
+                    <div class="notes__small-body">I learnt nothing today.</div>
+                    <div class="notes__small-updated">Thursday 3:30pm</div>
+                </div>
+                <br>
+                <div >
+                </div>
+                <div class="notes__list-item notes__list-item--selected">
+                    <div class="notes__small-title">Lecture Notes 02</div>
+                    <div class="notes__small-body">I learnt nothing today.</div>
+                    <div class="notes__small-updated">Friday 4:30pm</div>
+                </div>
+            </div>
+
+            <div>  <a style="padding:10px;display:block;" href="http://androidcss.com/css/css3-floating-button-tutorial/" target="_blank">Click here for complete tutorial</a>
+    
+                <a href="#" class="float">
+                    <i class="fa fa-plus my-float"></i>
+                    </a></div>
+        </div>
+        <div class="notes__preview">
+            <input class="notes__title" type="text" placeholder="Enter a title...">
+            <!-- <textarea class="notes__body">I am the notes body...</textarea> -->
+            <style>
+                h1 {
+                    text-align: center;
+                }
+            </style>            
+            <div id=toolbar></div>
+            <div id=editor></div>
+        </div>
+        <div name="" id="hello" cols="500" rows="500"></div>
+    
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+        <script>
+          var toolbarOptions = [
+              [{ 'font': [] }],
+              ['bold', 'italic', 'underline', 'strike','blockquote', 'code-block'], 
+              [{ 'header': '1' }, { 'header': '2' },],
+              [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+              [{ size: [ 'small', false, 'large', 'huge' ]}],
+              [], 
+              ['link', 'image'],
+              [{ 'color': [] }, { 'background': [] }],  
+              
+            ];
+          var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+              toolbar: toolbarOptions
+            }
+          });
+          var inputF = document.getElementById("hello")
+          quill.on('text-change', function() {
+            var delta = quill.getContents();
+            var preciousContent = JSON.stringify(delta);
+            inputF.value = preciousContent;
+            console.log(preciousContent);
+          });
+        </script>
+        </div>
+      
+    </div>
+   
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>

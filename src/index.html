@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Snap Library</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <!-- bootstrap connect -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/25a5513389.js" crossorigin="anonymous"></script>
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <!-- navigation panel -->
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0 m-0">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Snap Library</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <!-- set navigation margin to right -->
+                        <div class="me-auto "></div>
+                        <div class="navbar-nav leftnav">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Subscription</a>
+                            <a class="nav-link" href="#">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- end of naviagation menu -->
+
+        <!-- upper section -->
+        <div class="container text-center">
+            <div class="row">
+
+                <div class="col-md-7 col-sm-12 ">
+                    <h2 class="upheader">Welcome To Snap Library</h2>
+                    <p class="uppara">Are a Student, A worker, An undergraduate? Short note is very compulsory this when
+                        we
+                        are in any kind of situation. In this pandemic situation you can’t share your notes among
+                        others.
+                        Therefore, we give a better solution for sharing your notes with others. Snap Library is better
+                        solution
+                        for those problems. So, its time explore your knowledge with others. </p>
+
+                    <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+
+                        <!-- <a href= "../src/notes.html"> -->
+                        <button class="btn btn-primary me-md-5" id="getStarted" type="button"> Get Started <i
+                                class="fas fa-chevron-right"></i></button>
+                        <!-- </a> -->
+                        <script type="module">
+                            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+                            import { getAuth,signOut,signInWithPopup,GoogleAuthProvider,setPersistence,browserSessionPersistence,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.6.3/firebase-auth.js";
+                            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";
+                            // Your web app's Firebase configuration
+                            var firebaseConfig = {
+                                apiKey: "AIzaSyDFCmq4xFzvcGDZsyt9eNKqMA1PcnGSoDA",
+                                authDomain: "nuhata.firebaseapp.com",
+                                projectId: "nuhata",
+                                storageBucket: "nuhata.appspot.com",
+                                messagingSenderId: "762549103905",
+                                appId: "1:762549103905:web:8acb9a10b245e043d5e260",
+                                measurementId: "G-0J1BY3BXNC"
+                            };
+                            // Initialize Firebase
+                            const firebaseapp = initializeApp(firebaseConfig);
+                            const firebaseAuth = getAuth(firebaseapp);
+                            const firebaseProvider = new GoogleAuthProvider();
+
+                            document.getElementById('getStarted').addEventListener('click', GoogleLogin)
+
+                            function GoogleLogin() {
+                                setPersistence(firebaseAuth, browserSessionPersistence).then(()=>{
+                                    return signInWithPopup(firebaseAuth, firebaseProvider).then(result=>{
+                                        console.log(result.user);
+                                    }).catch(e=>{
+                                        console.log(e);
+                                    });
+                                }).catch((err)=>{
+                                    const errorCode = err.code;
+                                })
+                            }
+
+                            function checkuserstate(){
+                                onAuthStateChanged(firebaseAuth, (user) =>{
+                                    if(user){
+                                        setSiteRedirect(user);
+                                        const uniqueId = user.uid;
+                                    }
+                                });
+                            }
+
+                            function setSiteRedirect(user){
+                                window.location.replace("notes.html");
+                            }
+
+                            checkuserstate();
+                            
+                        </script>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-12 pt-6">
+                    <img src="../images/header-removebg.png" class="img" alt="header image">
+                </div>
+
+
+    </header>
+
+    <main>
+        <!-- first section -->
+        <section class="section-1">
+            <div class="container text-center">
+
+                <div class="row">
+
+                    <div class="col-md-6  ">
+                        <div class="pray">
+                            <img src="../images/notes-removebg.png " class="img-fluid" alt="notes image">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="panel text-center">
+                            <h2> Why You Need To Choose Us</h2>
+                            <p class="pt-4"> This Snap Library is run under the cloud base software therefore you don’t
+                                need
+                                to
+                                any storage to access
+                                is and also you
+                                can access this snap library in anytime without any apk file. </p>
+                            <p class="pt-4"> During this Covid-19 pandemic situation we cannot share anything with other
+                                under the health
+                                guideline issues. This Snap
+                                Library is always very helpful for everyone who wants to share their notes with others.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- end of 1st section -->
+
+        <!-- start second section -->
+        <section class="section-2 container-fluid p-0">
+
+            <div class="coverpic">
+                <div class="content text-center">
+                    <h1>Saas Platform Released Date</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam laborum, fuga doloremque facere
+                        eveniet atque iste corporis officiis voluptatibus harum!</p>
+                </div>
+            </div>
+            <div class="container-fluid text-center">
+                <!-- division is flex box ,single row all columns, all content centered -->
+
+                <div class="days d-flex flex-md-row flex-wrap justify-content-center">
+
+                    <div class="year">
+                        <h1>2021</h1>
+                        <p>Year</p>
+                    </div>
+                    <div class="year">
+                        <h1>12</h1>
+                        <p>Month</p>
+                    </div>
+                    <div class="year">
+                        <h1>12</h1>
+                        <p>Date</p>
+                    </div>
+                    <div class="year">
+                        <h1>12</h1>
+                        <p>Minutes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- start subscription section -->
+            <div class="subscription text-center">
+                <h1 class="subheader">Pricing Plan</h1>
+                <p class="subpara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet ipsum sint
+                    temporibus voluptate nam
+                    similique?</p>
+                <div class="pricingcard">
+                    <div class="d-flex flex-row justify-content-center flex-wrap">
+
+                        <!-- first price card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class=cardtitle>
+                                    <h5 class="card-title">Community Edition</h5>
+                                </div>
+
+                                <p class="card-text">Free to Use</p>
+                                <div class="prices">
+                                    <h1>$0</h1>
+                                </div>
+                                <!-- px means padding x axis and mb means magic bottom -->
+                                <a href="#" class="btn btn-dark px-5 py-2 mb-5">SignUp Now</a>
+                            </div>
+                        </div>
+
+                        <!-- second price card -->
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class=cardtitle>
+                                    <h5 class="card-title">Pro Edition</h5>
+                                </div>
+
+                                <p class="card-text">Include Half oF Features</p>
+                                <div class="prices">
+                                    <h1>$10</h1>
+                                </div>
+                                <!-- px means padding x axis and mb means magic bottom -->
+                                <a href="#" class="btn btn-dark px-5 py-2 mb-5">Purchase Now</a>
+                            </div>
+                        </div>
+
+                        <!-- third price card -->
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class=cardtitle>
+                                    <h5 class="card-title">Diamond Edition</h5>
+                                </div>
+
+                                <p class="card-text">All Features Included</p>
+                                <div class="prices">
+                                    <h1>$20</h1>
+                                </div>
+                                <!-- px means padding x axis and mb means magic bottom -->
+                                <a href="#" class="btn btn-dark px-5 py-2 mb-5">Purchase Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- team section -->
+        <section class="team">
+
+            <div class="container text-center">
+                <h1 class="text-dark">Our Team</h1>
+                <!-- </div> -->
+                <div class="row d-flex flex-md-row flex-wrap">
+
+                    <div class="col-md-3 col-sm-12">
+                        <div class="our_team">
+                            <div class="team_image">
+                                <img src="../images/nuyun.jpeg" alt="nuyun image">
+                            </div>
+                            <div class="team_content">
+                                <h2>Nuyun Pabasara</h2>
+                                <p>Backend Developer</p>
+                            </div>
+                            <div class="social">
+                                <div class="icon">
+                                    <i class="fab fa-facebook fa-2x px-2"></i>
+                                    <i class="fab fa-linkedin fa-2x px-2"></i>
+                                    <i class="fab fa-github fa-2x px-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 mb-10">
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="our_team">
+                            <div class="team_image">
+                                <img src="../images/harindu.jpeg" alt="harindu image">
+                            </div>
+                            <div class="team_content">
+                                <h2>Harindu Mansaka</h2>
+                                <h5>Lead</h5>
+                                <p>Security Reasearcher</p>
+                            </div>
+                            <div class="social">
+                                <div class="icon">
+                                    <i class="fab fa-facebook fa-2x px-2"></i>
+                                    <i class="fab fa-linkedin fa-2x px-2"></i>
+                                    <i class="fab fa-github fa-2x px-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 mb-10">
+
+                    </div>
+
+                    <div class=" col-md-3 col-sm-12">
+                        <div class="our_team">
+                            <div class="team_image">
+                                <img src="../images/thameera.jpeg" alt="thameera image">
+                            </div>
+                            <div class="team_content">
+                                <h2>Thameera Lahiru</h2>
+                                <p>Frontend Developer</p>
+                            </div>
+                            <div class="social">
+                                <div class="icon">
+                                    <i class="fab fa-facebook fa-2x px-2"></i>
+                                    <i class="fab fa-linkedin fa-2x px-2"></i>
+                                    <i class="fab fa-github fa-2x px-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 mb-10">
+
+                    </div>
+
+
+                </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container p-0">
+            <div class="row text-center">
+                <div class="col-md-12 col-sm-12 ">
+                    <h1 class="text-light">About Us</h1>
+                    <p class="text-muted pt-3"> Snap Library is a method of who are willing to take note and refer the
+                        short
+                        note in the internet. This Snap Library fully authorized under the NUHATA group.
+                    </p>
+                </div>
+            </div>
+            <!-- footer images -->
+            <div class="row text-center pt-4">
+                <div class="col-md-12 col-sm-12">
+                    <a href="#" class="text-secondary text-decoration-none">
+                        <i class="fab fa-instagram fa-2x px-2"></i>
+                        <i class="fab fa-facebook fa-2x px-2"></i>
+                        <i class="fab fa-linkedin fa-2x px-2"></i>
+                        <i class="fab fa-github fa-2x px-2"></i> </a>
+                    <p class="pt-4 text-muted"> Copyright © 2021 All Right Reserverd <span>NUHATA</span> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

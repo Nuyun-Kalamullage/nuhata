@@ -1,0 +1,293 @@
+/* google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Playfair+Display:ital@1&family=Rubik+Mono+One&family=Sniglet:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Playfair+Display:ital@1&family=Rubik+Mono+One&family=Sniglet:wght@800&display=swap');
+
+* {
+    /* make elements  padding and width total height */
+    box-sizing: border-box;
+}
+
+header,
+section {
+    /* hide left and right spaces */
+    overflow-x: hidden;
+}
+
+/* root is for declaring css variables */
+:root {
+    /* variable name , actual font family , fallback value */
+    --Snigle-font: "Sniglet", cursive;
+    --Rubik: "rubik", cursive;
+    --Acme: "Acme", cursive;
+    --Lobster: "Lobster", cursive;
+    --bakbak: "Bakbak One", cursive;
+    --light-black: #2e2c2caf;
+
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    --bggradient: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    --light-gray: rgba(255, 255, 255, 0.842);
+}
+
+
+header a {
+    font-family: var(--Lobster);
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+
+
+header{
+    background: #0cebeb;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.leftnav a {
+    color: white;
+
+}
+
+header .leftnav:last-child {
+    padding-right: 6.5em;
+}
+
+.leftnav a:hover {
+    color: rgb(0, 0, 0);
+}
+
+header .navbar-brand {
+    padding-left: 5rem;
+}
+
+/* adjust element of header image */
+header .row .col-md-5 {
+    padding: 4.2vmin 1vmin;
+}
+
+header .row .col-md-5 img {
+    padding-top: 6vmin;
+    width: 125%
+}
+
+.uppara {
+    padding-top: 3vmin;
+    letter-spacing: 3px;
+    padding: 3vmin 1vmin;
+}
+
+header .row .col-md-7 {
+    padding-top: 13vmin;
+    padding: 22vmin 1vimn;
+    padding-bottom: 10vmin;
+}
+
+.upheader {
+    font-family: var(--Acme);
+    color:rgb(245, 245, 245);
+    font-size: 7vmin;
+    
+    padding: 0.1em 0em;
+}
+
+header .row .col-md-7 button {
+    border-radius: 30px;
+    font-weight: bold;
+    background-color: rgb(32, 133, 151);
+}
+
+/* y u need to choose us section */
+
+.section-1 .col-md-6 .panel h2{
+    padding-top:8vmin;
+    padding-bottom:-3vmin;
+    font-family:var(--Acme);
+}
+
+.section-1 .col-md-6 .panel p{
+    
+    letter-spacing: 3px;
+    padding: 3vmin 1vmin;
+}
+
+/* softaware relased date section */
+
+.coverpic{
+    width:100%;
+    height:68vmin;
+    /* background-color: darkgrey; */
+    background: url(../images/wave.jpg);
+    background-position: -15rem -3rem;
+    background-size:125%;
+    position: relative;
+}
+
+.coverpic .content{
+    background: rgba(0, 0, 0, 0.7);
+    height:100%;
+    width:100%;
+    padding-top: 25vmin;
+    padding-left: 13vmin;
+}
+
+.coverpic .content h1{
+    font-family: var(--Acme);
+    font-size: 6vmin;
+    color:whitesmoke;
+}
+
+.coverpic .content p{
+    font-family:var(--bakbak);
+    font-size: 2vmin;
+    color: #e5e5e5ce;
+}
+
+.days .year{
+    z-index: 1;
+    width: 17rem;
+    height: 10rem;
+    padding-top: 3.5vmin;
+    margin: 1rem;
+    border-radius:.5em;
+    box-shadow: 1px 2px 50px 0px rgba(226,135,67,0.6);
+    ; 
+}
+
+.days .year h1 {
+    font-size: 3rem;
+    color: rgb(86, 209, 203);
+}
+
+.days .year p {
+    color: rgb(124, 91, 91);
+    font-size:1.5rem;
+    font-family:var(--Lobster);
+}
+
+/* overlap box with content */
+.days{
+    margin-top:-15vmin;
+}
+
+/* subscription class styling */
+
+.subscription .subheader{ 
+
+    padding-top: 13vmin;
+    padding-bottom: 0.1em;
+    font-family: var(--Acme);
+}
+
+.subscription .subpara{ 
+    color:var(--light-black);
+    padding-bottom:8vmin;
+    font-size: 2.5vmin;
+}
+
+.subscription .pricingcard .card{
+    width: 15rem;
+    margin:3vmin;
+}
+
+.pricingcard div{
+    padding:0;
+    margin:0;
+}
+
+.card .card-title{
+    background: rgba(68,188,216,0.7);
+    padding:1.5rem 1rem;
+    font-size:2.8vmin;
+}
+
+.card .card-text{
+    padding:2.5rem 1.5rem;
+    color:rgba(0, 0, 0, 0.582);
+}
+
+.card-body .prices h1{
+    font-size: 8vmin;
+    padding:0.5em;
+}
+
+/* team section styling */
+
+.team .container h1{
+    padding-top: 10vh;
+    padding-bottom: 2vh;
+    font-family: var(--Acme);
+    
+}
+
+.team{
+    height: 100%;
+    padding:100px 0 150px 0;
+    overflow: hidden;
+}
+.team img{
+    width:125px;
+
+}
+
+.our_team{
+    position:relative;
+    margin-bottom:20px;
+    padding:30px 0 20px 0;
+    background: rgb(233, 233, 233);
+    text-align: center;
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px #dce2ec;
+}
+
+.our_team .team_image{
+    position:relative;
+    display:inline-block;
+    width: 150px;
+    height:150px;
+    z-index: 1;
+}
+
+.our_team .team_image::before{
+    content: " ";
+    position:absolute;
+    left:0;
+    right:0;
+    height:0;
+    width:100%;
+    border-radius:50%;
+    background: #238271;
+    bottom:125%;
+    opacity:0.2;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+}
+
+.our_team:hover .team_image::before{
+    height:65%;
+}
+
+
+.our_team .team_image img{
+
+    width: 95%;
+    height:auto;
+    border-radius:50%;
+    transform:scale(1);
+    transition: all 0.9s ease 0s;
+} 
+
+.our_team:hover .team_image img{
+    transform: scale(0.7);
+    box-shadow: 0 0 0 15px #238271;
+}
+
+.our_team .team_content .name{
+    margin-bottom:5px;
+    font-size:25px;
+    font-weight:bold;
+    color:#144d86;
+}
