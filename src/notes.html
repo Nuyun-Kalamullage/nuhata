@@ -23,21 +23,33 @@
     
     <div class="notes" id="app">
         <div class="notes__sidebar">
-            <button class="notes__add" type="button">Add Note</button>
+            <a href="../index.html">
+                <script src = "js/firebase.js" type="module">
+                    firebaseapp.auth().signOut().then(() => {
+                          // Sign-out successful.
+                        }).catch((error) => {
+                            // An error happened.
+                    });
+    
+                </script>
+            <button class="notes__add" type="button">Back to Home</button>
+            
+        </a>
             <div class="notes__list">
                 <div class="notes__list-item notes__list-item--selected">
-                    <div class="notes__small-title">Lecture Notes 01</div>
-                    <div class="notes__small-body">I learnt nothing today.</div>
+                    <div class="notes__small-title">Day 01</div>
+                    <div class="notes__small-body">The term "cloud services" ref...</div>
                     <div class="notes__small-updated">Thursday 3:30pm</div>
                 </div>
                 <br>
                 <div >
                 </div>
                 <div class="notes__list-item notes__list-item--selected">
-                    <div class="notes__small-title">Lecture Notes 02</div>
-                    <div class="notes__small-body">I learnt nothing today.</div>
+                    <div class="notes__small-title">Day 02</div>
+                    <div class="notes__small-body">The one company that most...</div>
                     <div class="notes__small-updated">Friday 4:30pm</div>
                 </div>
+
             </div>
 
             <div> 
@@ -59,7 +71,12 @@
         <div name="" id="hello" cols="500" rows="500"></div>
     
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
+
         <script>
+            
+            
           var toolbarOptions = [
               [{ 'font': [] }],
               ['bold', 'italic', 'underline', 'strike','blockquote', 'code-block'], 
@@ -83,8 +100,10 @@
             var preciousContent = JSON.stringify(delta);
             inputF.value = preciousContent;
             console.log(preciousContent);
+            
           });
         </script>
+        
         </div>
       
     </div>
